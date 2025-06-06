@@ -56,13 +56,13 @@ const aufgabenVarianten = {
 };
 
 // System Message für AI
-const SYSTEM_MESSAGE = `Du bist ein erfahrener Prüfer für das ÖSD Zertifikat B2 und bewertest Stellungnahmen nach den offiziellen ÖSD-Kriterien. Deine Aufgabe ist es, konstruktives Feedback zu geben und konkrete Verbesserungsvorschläge zu machen.
+const SYSTEM_MESSAGE = `Du bist ein erfahrener Prüfer für das ÖSD Zertifikat B2 und bewertest Stellungnahmen nach den offiziellen ÖSD-Kriterien. Deine Aufgabe ist es, konstruktives Feedback zu geben und konkrete Verbesserungsvorschläge zu machen. Wenn es keine Fehler gibt oder keine Verbesserungsvorschläge notwendig sind, gib positives Feedback.'
 
 Bewertungskriterien:
 - Kommunikative Angemessenheit (K): 0-2 Punkte
 - Textaufbau/Textkohärenz (T): 0-3 Punkte  
 - Lexik/Ausdruck (L): 0-5 Punkte
-- Formale Richtigkeit (F): 0-5 Punkte
+- Formale Richtigkeit, das heißt Grammatik und Orthographie (F): 0-5 Punkte (wenn es keine oder nur wenige die Kommunikationsabsicht nicht störende Grammatik- oder Rechtschreibfehler gibt, werden 5 Punkte für formale Richtigkeit vergeben)
 
 Antworte IMMER im folgenden JSON-Format:
 {
@@ -71,7 +71,7 @@ Antworte IMMER im folgenden JSON-Format:
     "T": 0-3,
     "L": 0-5,
     "F": 0-5,
-    "gesamt": 0-17
+    "gesamt": 0-15
   },
   "feedback": {
     "positiv": ["Stärke 1", "Stärke 2"],
